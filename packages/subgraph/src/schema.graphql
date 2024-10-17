@@ -1,0 +1,78 @@
+type PaymentProcessed @entity {
+  id: ID!
+  recipient: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Deposit @entity {
+  id: ID!
+  sender: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PaymentReleased @entity {
+  id: ID!
+  client: Bytes!
+  freelancer: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProjectCompleted @entity {
+  id: ID!
+  client: Bytes!
+  freelancer: Bytes!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MilestoneCompleted @entity {
+  id: ID!
+  client: Bytes!
+  freelancer: Bytes!
+  milestoneIndex: BigInt!
+  amount: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ProjectCreated @entity {
+  id: ID!
+  client: Bytes!
+  amount: BigInt!
+  title: String!
+  description: String!
+  startDate: BigInt!
+  endDate: BigInt!
+  revisionPolicy: String!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  milestones: [String!]!
+}
+
+type Milestone @entity {
+  id: ID!
+  amount: BigInt!
+  description: String!
+  isCompleted: Boolean!
+}
+
+type MilestoneCreated @entity {
+  id: ID!
+  client: Bytes!
+  milestoneId: BigInt!
+  amount: BigInt!
+  description: String!
+}

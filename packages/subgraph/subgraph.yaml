@@ -1,0 +1,43 @@
+specVersion: 0.0.4
+schema:
+  file: ./src/schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Adwumapa
+    network: sepolia
+    source:
+      abi: Adwumapa
+      address: "0xFC9cB3Ca8F5B58fe514895cA7ab06c650115B642"
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - PaymentProcessed
+        - Deposit
+        - PaymentReleased
+        - ProjectCompleted
+        - MilestoneCompleted
+        - ProjectCreated
+        - MilestoneCreated
+        - Milestone
+      abis:
+        - name: Adwumapa
+          file: ./abis/Adwumapa.json
+      eventHandlers:
+        - event: PaymentProcessed(indexed address,uint256)
+          handler: handlePaymentProcessed
+        - event: Deposit(indexed address,uint256)
+          handler: handleDeposit
+        - event: PaymentReleased(indexed address,indexed address,uint256)
+          handler: handlePaymentReleased
+        - event: ProjectCompleted(indexed address,indexed address,uint256)
+          handler: handleProjectCompleted
+        - event: MilestoneCompleted(indexed address,indexed address,uint256,uint256)
+          handler: handleMilestoneCompleted
+        - event: ProjectCreated(indexed
+            address,uint256,string,string,(uint256,uint256,string,bool)[],uint256,uint256,string)
+          handler: handleProjectCreated
+        - event: MilestoneCreated(indexed address,uint256,uint256,string)
+          handler: handleMilestoneCreated
+      file: ./src/mapping.ts
