@@ -64,4 +64,4 @@ We deployed on Base, Optimism, and Lisk because these are highly efficient Layer
 
 GitHub Link: https://github.com/lamsya/blockgigs.git
 
-contract address =0xb04DA1961f950f673dfdf076fDB36696C509D6C8
+Deployed Contract: [contract address](https://sepolia.basescan.org/address/0xb04da1961f950f673dfdf076fdb36696c509d6c8)
